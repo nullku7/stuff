@@ -65,7 +65,7 @@ The following TCP Stream contains ALL camera's, their IP's, and Username/Passwor
 These are the camera's that Dahua now Force a password change on!
 This is a huge risk as the camera's are usually isolated via the NVR from the main network, meaning accessing them required using the NVR as a pivot.
 Due to most installers sharing a common password for the entire system, the chance the admin password for the NVR would be revealed would be very high.
-![Captures Usernames and Passwords](/images/Screen Shot 2017-02-24 at 10.26.33 am.png){:class="img-responsive"}
+![Captures Usernames and Passwords](images/Screen Shot 2017-02-24 at 10.26.33 am.png){:class="img-responsive"}
 
 As can be seen from this Captured TCP Stream, the client software requests all of the camera channels, and the NVR responds with this.
 
@@ -85,7 +85,7 @@ So we now have.
 
 Whenever a new user (of any level permission) is added, the username and password is transmitted in clear text
 
-![Username: test   Password: NotSecure](/images/Screen Shot 2017-02-24 at 10.39.14 am.png){:class="img-responsive"}
+![Username: test   Password: NotSecure](images/Screen Shot 2017-02-24 at 10.39.14 am.png){:class="img-responsive"}
 
 This packet  a6 00 00 00 17 00 00 00 06 is surprisingly identical to that identified in cve-2013-6117
 If that's the case, 17 is a checksum
@@ -100,7 +100,7 @@ This is worth noting that either "Intel" was a hard coded option for the last pa
 
 As can be seen in the metasploit module and Depth Security's blog "Intel" was hardcoded
 [https://github.com/depthsecurity/dahua_dvr_auth_bypass/blob/master/dahua_dvr_auth_bypass.rb#L169](https://github.com/depthsecurity/dahua_dvr_auth_bypass/blob/master/dahua_dvr_auth_bypass.rb#L169)
-![img](/images/Screen Shot 2017-02-26 at 10.16.54 am.png){:class="img-responsive"}
+![img](images/Screen Shot 2017-02-26 at 10.16.54 am.png){:class="img-responsive"}
 "Intel" must be the old password.  
 `username:oldpass:newpass:newpass`
 
@@ -125,11 +125,11 @@ This alone may be enough information to gain access, if not, we need to go deepe
 
 Below is the hash captured when the software is launched.
 
-![img](/images/Screen Shot 2017-02-24 at 2.37.47 pm.png){:class="img-responsive"}
+![img](images/Screen Shot 2017-02-24 at 2.37.47 pm.png){:class="img-responsive"}
 
 This hash alone is not that useful, but everything needed to make it useful is presented just before.
 
-![img](/images/Screen Shot 2017-02-24 at 2.39.58 pm.png){:class="img-responsive"}
+![img](images/Screen Shot 2017-02-24 at 2.39.58 pm.png){:class="img-responsive"}
 
 So with this we have
 - Account Name: admin
