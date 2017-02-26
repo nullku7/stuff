@@ -183,3 +183,7 @@ return b
 
 I will be continuing this research very slowly.  
 I unfortunately don't have the time to finish this now, but I also feel it is very important this vulnerability is publicised now, since Dahua have decided to ignore the risks and take no action to rectify it over the past 4 months!
+
+### Credits
+Andrew Frahn
+Others where mentioned
