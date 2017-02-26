@@ -60,7 +60,8 @@ So we know the names of the camera's, but not much more yet.
 
 As it turns out, the Web Page, Mobile Application, and Desktop Application are all nice enough to transfer all camera details in clear text.
 
-The following TCP Stream contains ALL camera's, their IP's, and Username/Password
+The following TCP Stream contains ALL camera's, their IP's, and Username/Password.  
+What happens is the software requests all the camera configurations, and this is included in the response.
 
 These are the camera's that Dahua now Force a password change on!
 This is a huge risk as the camera's are usually isolated via the NVR from the main network, meaning accessing them required using the NVR as a pivot.
