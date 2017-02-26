@@ -65,7 +65,7 @@ The following TCP Stream contains ALL camera's, their IP's, and Username/Passwor
 These are the camera's that Dahua now Force a password change on!
 This is a huge risk as the camera's are usually isolated via the NVR from the main network, meaning accessing them required using the NVR as a pivot.
 Due to most installers sharing a common password for the entire system, the chance the admin password for the NVR would be revealed would be very high.
-![Captures Usernames and Passwords](images/Screen Shot 2017-02-24 at 10.26.33 am.png){:class="img-responsive"}
+![Captures Usernames and Passwords]({{ site.github.url }}/images/Screen Shot 2017-02-24 at 10.26.33 am.png){:class="img-responsive"}
 
 As can be seen from this Captured TCP Stream, the client software requests all of the camera channels, and the NVR responds with this.
 
