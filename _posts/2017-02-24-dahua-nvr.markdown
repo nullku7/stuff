@@ -16,6 +16,10 @@ Responsible Disclosure Timeline.
 - 2016-11-14: Contacted both the Importer and Dahua for an update.
 - Apart from when I rang the Importer directly, no one has responded.
 - 2017-02-24: Public Disclosure.
+- 2017-02-26: CVE's Assigned 
+
+### Changes to this post
+- 2017-02-27: CVE Information added, and additional information for clarification of CVE-2017-6342
 
 ### Changes since First Reporting on 2016-10-10
 
@@ -57,6 +61,7 @@ So we know the names of the camera's, but not much more yet.
 > The entire DVR/NVR interface is already loaded on the login screen
 
 ### Obtaining Camera Passwords
+[CVE-2017-6341](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6341)
 
 As it turns out, the Web Page, Mobile Application, and Desktop Application are all nice enough to transfer all camera details in clear text.
 
@@ -115,14 +120,21 @@ At this stage, it appears each TCP Connect needs to authenticate, then the binar
 > I will spend more time on this as time allows.
 
 ### Auto Login despite NO login
+[CVE-2017-6342](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6342)
 
 When launching SmartPSS Software (v 1.16.1 Build Date 2017-01-19)  
 It logs into the NVR before any user interaction with the software.  
 Upon logging in, the above camera information is divulged, as well as the Admin Hash.  
 This alone may be enough information to gain access, if not, we need to go deeper.
 
+##### Additional Information for clarification - 2017-02-27 
+The software launches to the 'login' screen.  
+While on this screen, the software logs into the Port 37777 service as admin.
+As soon as it logs in, in the background, it pulls the camera configurations, which includes above camera usernames and passwords.
+
 
 ### Hashes
+[CVE-2017-6343](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6343)
 
 Below is the hash captured when the software is launched.
 
@@ -148,7 +160,7 @@ part 2: MD5(username:random:part1)
 
 Older Dahua had an infamous 48bit algorithm, this is not used on these NVR
 
-Looking at source code, it seems come even only did a base64encode, this also does not work on these NVR
+Looking at source code, it seems at some point they only did a base64encode, this also does not work on these NVR
 
 This is a great improvement over the past, but unfortunately, you can still sign in using the MD5 hash via the web interface.
 
