@@ -57,7 +57,7 @@ The 0: at the start is the user id.  A 0 causes the NVR to automatically assign 
 ![img]({{ site.github.url }}/images/Screen Shot 2017-03-09 at 10.17.05 pm.png){:class="img-responsive"}
 
 
-Now that we have our content, the following ettercap filter is used.
+Now that we have our content, the following ettercap filter is used.  
 What the packtet is I am detecting doesn't matter, as I am actually going to tack my payload (which is normally a full packet) straight onto the end of the original packet, and it will work just fine!  
 
 ```
@@ -98,7 +98,7 @@ If you intend to use any Dahua equipment on an untrusted network, they should be
 
 ### Vendor Response
 
-Will update this when they do.
+Will update this when they do.  
 7 days was given for a response, while correspondance did occur, this exploit was not covered.  
 Due to the logical step from the last exposures to this one, Full Disclosure is applied.
 
