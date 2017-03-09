@@ -80,7 +80,7 @@ Yes, I should have to do something better than this... but I don't!
 
 ![img]({{ site.github.url }}/images/Screen Shot 2017-03-09 at 10.27.29 pm.png){:class="img-responsive"}
 
-Originally I did so this by replacing the packet contents, as well as other ways.  As long as you inject into the stream, it will work
+Originally I did this by replacing the packet contents, as well as other ways.  As long as you inject into the stream, it will work
 
 ![img]({{ site.github.url }}/images/Screen Shot 2017-03-02 at 12.51.14 am.png){:class="img-responsive"}
 
