@@ -93,7 +93,7 @@ While this proof of concept is only for injecting a user, it could be used for m
 ### Workarounds
 
 There are none, this is insecure by design.  
-Until a proper encrypted protocol is used, these are vulnerable.  
+Until proper encryption is used, these are vulnerable.  
 If you intend to use any Dahua equipment on an untrusted network, they should be accessed only using an encrypted tunnel of some sort.  
 
 ### Vendor Response
