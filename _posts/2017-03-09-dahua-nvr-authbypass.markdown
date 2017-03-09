@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Dahua NVR - Exploiting - CVE-2017-6432"
+title:  "Dahua NVR - Auth Bypass - CVE-2017-6432"
 date:   2017-03-09 21:00:00 +1100
 categories: exploit dahua
 ---
