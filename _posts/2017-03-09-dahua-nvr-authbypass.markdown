@@ -108,4 +108,4 @@ Vulnerability discovered by Andrew Frahn (null_ku7)
 
 ### References
 
-CVE-2017-6341, CVE-2017-6342, CVE-2017-6343: (https://nullku7.github.io/stuff/exposure/dahua/2017/02/24/dahua-nvr.html)[https://nullku7.github.io/stuff/exposure/dahua/2017/02/24/dahua-nvr.html]
+CVE-2017-6341, CVE-2017-6342, CVE-2017-6343: [https://nullku7.github.io/stuff/exposure/dahua/2017/02/24/dahua-nvr.html](https://nullku7.github.io/stuff/exposure/dahua/2017/02/24/dahua-nvr.html)
