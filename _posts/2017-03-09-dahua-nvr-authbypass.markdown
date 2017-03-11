@@ -10,6 +10,5 @@ categories: exploit dahua
 - 2017-03-02: Proof of Concept Written
 - 2017-03-02: Dahua Contacted with plan to disclose on March 9th unless they wished otherwise.
 - 2017-03-07: Dahua Responded with timeline to fix CVE-2017-6341, CVE-2017-6342, CVE-2017-6343
-- 2017-03-07: Requested response for this: CVE-2017-6432 again
-11- 2017-03-: Full Disclosure
-null_
+- 2017-03-07: Requested response for this: CVE-2017-6432 again.  
+- 2017-03-11: Content redacted and kept private at request of Dahua
