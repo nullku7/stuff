@@ -13,4 +13,3 @@ categories: exploit dahua
 - 2017-03-07: Requested response for this: CVE-2017-6432 again
 11- 2017-03-: Full Disclosure
 null_
-CVE-2017-6341, CVE-2017-6342, CVE-2017-6343: [https://nullku7.github.io/stuff/exposure/dahua/2017/02/24/dahua-nvr.html](https://nullku7.github.io/stuff/exposure/dahua/2017/02/24/dahua-nvr.html)
