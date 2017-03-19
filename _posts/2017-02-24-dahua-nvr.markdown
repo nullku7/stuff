@@ -16,11 +16,11 @@ Responsible Disclosure Timeline.  
 - 2017-02-26: CVE's Assigned
 - 2017-03-02: Sent all CVE's (plus CVE-2017-6432) to Dahua
 - 2017-03-08: Dahua Responded stating all three CVE identified here will be resolved in July 2017.  
-- 2017-03-11: Content redacted by request from Dahua 
+- 2017-03-11: Content redacted by request from Dahua until all issues are resolved
 
 
 ### Relevant CVE's
 
-[CVE-2017-6341](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6341)
-[CVE-2017-6342](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6342)
-[CVE-2017-6343](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6343)
+[CVE-2017-6341](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6341)   
+[CVE-2017-6342](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6342)   
+[CVE-2017-6343](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6343)   
