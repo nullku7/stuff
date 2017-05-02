@@ -46,7 +46,10 @@ Because it is possible to view this configuration without logging in, the userna
 ### Mitigation  
 
 Get these devices OFF the internet, they are not secure, and clearly not designed to ever be accessed directly over the internet.   
+
 This is not unusual for industrial equipment, which is rarely built with security in mind.  
+
 If accessing these remotely is designed, a secure encrypted VPN should need used for access.  
+
 As these devices do not contain any sign of supporting UPNP, the only way these devices could be exposed is by users intentially exposing them.  
 
