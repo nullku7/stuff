@@ -8,6 +8,7 @@ categories: exposure industrial
 ### Introduction
 
 Thermofisher dataTaker DT8x devices offer little security, and clear text configuration visible to users without any log in process.  
+The products website: http://www.datataker.com/
   
   
 ### Vulnerable Versions  
@@ -43,6 +44,14 @@ Because it is possible to view this configuration without logging in, the userna
 ![img]({{ site.github.url }}/images/tf-user.png){:class="img-responsive"}  
 
 
+**Bad Advice from Manufacturer**  
+With any IoT style device, manufacturers should be doing their best to advise users how to use them securely.  
+Thermofisher are doing the exact opposite, reccomending users to port forward access to these devices.  
+![img]({{ site.github.url }}/images/tf-rec.png){:class="img-responsive"}  
+This is sourced from an Application note on the datataker website.  
+http://www.datataker.com/documents/communications/application-notes/AN-0023-A0%20-%20Energy%20Resource%20Monitoring.pdf  
+
+  
 ### Mitigation  
 
 Get these devices OFF the internet, they are not secure, and clearly not designed to ever be accessed directly over the internet.   
