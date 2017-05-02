@@ -12,7 +12,7 @@ Thermofisher dataTaker DT8x devices offer little security, and clear text config
   
 ### Vulnerable Versions  
 
-While only DT8x devices have been inspected, it would be unlikely that other models are not also affected by this design issue.
+While only DT8x devices have been inspected, it would be unlikely that other models are not also affected by this design issue.  
 Only Firmware 1.72.007 was observed in the wild.
   
   
@@ -22,12 +22,12 @@ This is a very short stub of of the issue.
 There has been NO testing done on these devices, only a quick overview of the device and their state in the wild.
 
 **Popularity**  
-At the time of this posting, according to Shodan, there are at least 331 of these devices with this firmware publically exposed on the internet.  
+At the time of this posting, according to Shodan, there are at least 331 of these devices publically exposed on the internet.  
 A small sample of 16 devices were inspected, and only 2 prompted for a login.  
 
 ![img]({{ site.github.url }}/images/tf-shodan.png){:class="img-responsive"}
 
-**Risks**
+**Risks**  
 These devices are fully configurable, where programs can be written in them, using the web interface.  
 Schedules can be created, to send emails, connect to servers, and alike.  
 Many devices are configured to send emails.  Some even connect to ftp servers for uploading data.  
