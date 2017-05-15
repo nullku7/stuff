@@ -62,3 +62,13 @@ If accessing these remotely is required, a secure encrypted VPN should need used
   
 As these devices do not contain any sign of supporting UPNP, the only way these devices could be exposed is by users intentially exposing them.  
 
+## Update  
+
+As of 2017-05-21, no one has responded to my warnings.  
+The manufacturer has completely ignored all forms of contact.  
+
+There were several users also warned, while none have responded, the affected devices has been reduced from an estimated 331 devices to 214 globally.  
+
+While it is good to see the numbers reduced, it is a disguisting attitude from the manufacturer.
+
+I have contacted some of the warned companies to see if Thermofisher have contacted users in private.
