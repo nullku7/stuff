@@ -23,8 +23,10 @@ So if you have downloaded this machine, and completely stuck, I hope this explai
   
 ## My Setup
 
-I use kali as my main OS when doing Penetration Testing professionally.  
-But in this walkthough, I am using ParrotSec.  
+>This is for beginners
+
+In this walkthough, I am using ParrotSec.  
+I usually use Kali, so hope the pretty terminal looks good in the screenshots!
 
 Not much is needed, I start with a typical 2 terminals, and a text editor for notes.
 What you use for notes, be it gedit, sublime, vim, nano, cherrytree, faraday, I don't care, and neither should you. Don't get tied up on the petty.  
@@ -34,7 +36,7 @@ Whatever works, works!
 
 So I have a few VM's running on my host, but on this network, is just Parrotsec and Mr Robot.  
 A quick word on hosts...  
-It doesn't matter what you use.  I use OSX.  On some of my machines I have some linux distro installed.  Again, don't get tied up with the petty, it doesn't matter.
+It doesn't matter what you use as a host, honestely.  Again, don't get caught up with petty stuff.
 
 ## Enumeration   
 ### Network  
