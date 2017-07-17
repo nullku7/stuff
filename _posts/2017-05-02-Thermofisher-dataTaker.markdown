@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Thermofisher dataTaker - Insecure by Design"
+title:  "Thermofisher dataTaker - Insecure by Design - CVE-2017-11349"
 date:   2017-05-02 11:00:00 +11005
 categories: exposure industrial
 ---
@@ -72,3 +72,8 @@ There were several users also warned, while none have responded, the affected de
 While it is good to see the numbers reduced, it is a disguisting attitude from the manufacturer.
 
 I have contacted some of the warned companies to see if Thermofisher have contacted users in private.
+
+## CVE-2017-11349
+
+CVE-2017-11349 assigned.
+
