@@ -23,7 +23,3 @@ This seems to match, very closely to the metric profile for the Golf in InstaCod
 
 Format
 
-|Possible Meaning|????|?|?|650|300|?|?|???|Number of Cuts|X1|X2|X3|X4|X5|X6|X7|X8|
-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
-|From File|!SB5|1|1|650|300|0|0|100|8|2430|2140|1850|1560|1270|980|690|400|
-|Actual from Key||||||||8|2400|2100|
